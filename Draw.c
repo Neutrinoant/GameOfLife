@@ -15,28 +15,29 @@ void drawConsoleSizeIntro(void)
 void drawMapBoundary(MAP *map)
 {
 	int i, j;
+	int col = GetCol(map);
+	int row = GetRow(map);
 
 	system("cls");
 
 	printf("┌");
-	for (j=1; j<=map->col-2; j++) printf("─");
+	for (j=1; j<=col-2; j++) printf("─");
 	printf("┐");
 
-	for (i=1; i<map->row-1; i++)
+	for (i=1; i<row-1; i++)
 	{
 		printf("│");
-		for (j=1; j<=map->col-2; j++) printf("　");
+		for (j=1; j<=col-2; j++) printf("　");
 		printf("│");
 	}
 
 	printf("└");
-	for (j=1; j<=map->col-2; j++) printf("─");
+	for (j=1; j<=col-2; j++) printf("─");
 	printf("┘");
 
 	gotoxy(3,2);
 }
 
-// 창에 맞게 표시하는 방법 추가바람
 void drawRule(MAP *map)
 {
 	gotoxy(3,2); printf("[Life]  : ");
@@ -47,11 +48,13 @@ void drawRule(MAP *map)
 void drawMapInterior(MAP *map)
 {
 	int i, j;
+	int row = GetRow(map);
+	int col = GetCol(map);
 
-	for (j=1; j<=map->row-2; j++)
+	for (j=1; j<=row-2; j++)
 	{
 		gotoxy(3,j+1);
-		for (i=1; i<=map->col-2; i++)
+		for (i=1; i<=col-2; i++)
 			printf("□");
 	}
 }
@@ -59,17 +62,19 @@ void drawMapInterior(MAP *map)
 void drawGameDescription(MAP *map)
 {
 	int i;
-	gotoxy(3,map->row+1);
+	int col = GetCol(map);
+	gotoxy(3,GetRow(map)+1);
 	printf("[ Enter:next | m:modify ] ");
-	for (i=29; i<map->col*2-1; i+=2)
+	for (i=29; i<col*2-1; i+=2)
 		printf("　");
 }
 
 void drawModifyMode(MAP *map)
 {
 	int i;
-	gotoxy(3,map->row+1);
+	int col = GetCol(map);
+	gotoxy(3,GetRow(map)+1);
 	printf("[ ...Modify Mode... ] ");
-	for (i=25; i<map->col*2-1; i+=2)
+	for (i=25; i<col*2-1; i+=2)
 		printf("　");
 }

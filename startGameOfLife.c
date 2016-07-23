@@ -61,7 +61,7 @@ void nextMap(MAP *map, int keepnum[], int lifenum[])
 	int row = GetRow(map);
 	int col = GetCol(map);
 
-	// 생명들의 상태 변경 //
+	// Change state of lives //
 	for (i=1; i<=col-2; i++)
 	{
 		for (j=1; j<=row-2; j++)

@@ -1,7 +1,7 @@
 #ifndef __UNICODE_H__
 #define __UNICODE_H__
 
-typedef char UNIC[2];  // UNIC = char형 2개짜리 배열
+typedef char UNIC[2];  // UNIC = 2 char type
 
 extern UNIC UP;
 extern UNIC DOWN;

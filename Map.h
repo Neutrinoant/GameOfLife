@@ -10,8 +10,13 @@ typedef struct map {
 	int col;
 } MAP;
 
-void initMap(MAP *map);
-void makeMap(MAP *map, CONSOLE *cons);
-void destroyMap(MAP *map);
+void MapInit(MAP *map);
+void MakeMap(MAP *map, CONSOLE *cons);
+int GetRow(MAP *map);
+int GetCol(MAP *map);
+LIFE *GetLife(MAP *map, int x, int y);
+void SetRow(MAP *map, int row);
+void SetCol(MAP *map, int col);
+void DestroyMap(MAP *map);
 
 #endif

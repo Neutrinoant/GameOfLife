@@ -2,16 +2,7 @@
 #include "Console.h"
 #include "Unicode.h"
 #include "Map.h"
-
-int c2mx(int conx)
-{
-	return conx/2;
-}
-
-int c2my(int cony)
-{
-	return cony-1;
-}
+#include "MapConsoleTransform.h"
 
 int isInterior(MAP *map, int mx, int my)
 {
@@ -45,7 +36,7 @@ void makeLife(MAP *map)
 	int x, y;  // position on map
 	int n;
 
-	gotoxy(3,2);
+	gotoxy(m2cx(GetLastx(map)),m2cy(GetLasty(map)));
 
 	unigetch(ch);
 	while (!uniequal(ch, ENTER))
@@ -79,4 +70,7 @@ void makeLife(MAP *map)
 		}
 		unigetch(ch);
 	}
+
+	SetLastx(map, c2mx(curposx()));
+	SetLasty(map, c2my(curposy()));
 }

@@ -5,16 +5,7 @@
 #include "Draw.h"
 #include "Life.h"
 #include "Map.h"
-
-int m2cx(int mapx)
-{
-	return mapx*2+1;
-}
-
-int m2cy(int mapy)
-{
-	return mapy+1;
-}
+#include "MapConsoleTransform.h"
 
 int isGetLive(MAP *map, int x, int y, int lifenum[])
 {
@@ -70,7 +61,7 @@ void nextMap(MAP *map, int keepnum[], int lifenum[])
 	int row = GetRow(map);
 	int col = GetCol(map);
 
-	// Change state of lives //
+	// 생명들의 상태 변경 //
 	for (i=1; i<=col-2; i++)
 	{
 		for (j=1; j<=row-2; j++)
@@ -90,12 +81,12 @@ void nextMap(MAP *map, int keepnum[], int lifenum[])
 		}
 	}
 
-	// Initialize # of near lives //
+	// Change state of lives //
 	for (i=1; i<=col-2; i++)
 		for (j=1; j<=row-2; j++)
 			SetNear(GetLife(map,i,j), 0);
 
-	// Update # of near lives //
+	// Initialize # of near lives //
 	for (i=1; i<=col-2; i++)
 		for (j=1; j<=row-2; j++)
 			if (isLive(map,i,j))

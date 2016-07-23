@@ -38,6 +38,7 @@ void drawMapBoundary(MAP *map)
 	gotoxy(3,2);
 }
 
+// 창에 맞게 표시하는 방법 추가바람
 void drawRule(MAP *map)
 {
 	gotoxy(3,2); printf("[Life]  : ");

@@ -11,6 +11,8 @@ void MapInit(MAP *map)
 	map->life = NULL;
 	map->row = 0;
 	map->col = 0;
+	map->lastx = 1;
+	map->lasty = 1;
 }
 
 void MakeMap(MAP *map, CONSOLE *cons)
@@ -45,6 +47,16 @@ int GetCol(MAP *map)
 	return map->col;
 }
 
+int GetLasty(MAP *map)
+{
+	return map->lasty;
+}
+
+int GetLastx(MAP *map)
+{
+	return map->lastx;
+}
+
 LIFE *GetLife(MAP *map, int x, int y)
 {
 	return &(map->life[x][y]);
@@ -58,6 +70,16 @@ void SetRow(MAP *map, int row)
 void SetCol(MAP *map, int col)
 {
 	map->col = col;
+}
+
+void SetLastx(MAP *map, int mx)
+{
+	map->lastx = mx;
+}
+
+void SetLasty(MAP *map, int my)
+{
+	map->lasty = my;
 }
 
 void DestroyMap(MAP *map)

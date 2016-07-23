@@ -11,8 +11,8 @@ int changeConsoleSize(CONSOLE *cons)
 {
 	UNIC ch;
 	char *str;
-	int cur_lines = cons->lines;
-	int cur_cols = cons->cols;
+	int cur_lines = GetLines(cons);
+	int cur_cols = GetCols(cons);
 
 	str = (char *)malloc(100 * sizeof(char));
 	sprintf(str, "mode con: lines=%d cols=%d", cur_lines, cur_cols);
@@ -59,8 +59,8 @@ int changeConsoleSize(CONSOLE *cons)
 		}
 		else if (uniequal(ch, ENTER))
 		{
-			cons->lines = cur_lines;
-			cons->cols = cur_cols;
+			SetLines(cons, cur_lines);
+			SetCols(cons, cur_cols);
 			return 1;
 		}
 	}

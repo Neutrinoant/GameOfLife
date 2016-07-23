@@ -9,7 +9,11 @@ typedef struct console {
 	int cols;
 } CONSOLE;
 
-void initConsole(CONSOLE *cons);
+void ConsInit(CONSOLE *cons);
+int GetLines(CONSOLE *cons);
+int GetCols(CONSOLE *cons);
+void SetLines(CONSOLE *cons, int lines);
+void SetCols(CONSOLE *cons, int cols);
 void gotoxy(int x, int y);
 int curposx();
 int curposy();

@@ -3,10 +3,30 @@
 #include <Windows.h>
 #include "Console.h"
 
-void initConsole(CONSOLE *cons)
+void ConsInit(CONSOLE *cons)
 {
 	cons->lines = DEFAULT_CON_LINES;
 	cons->cols = DEFAULT_CON_COLS;
+}
+
+int GetLines(CONSOLE *cons)
+{
+	return cons->lines;
+}
+
+int GetCols(CONSOLE *cons)
+{
+	return cons->cols;
+}
+
+void SetLines(CONSOLE *cons, int lines)
+{
+	cons->lines = lines;
+}
+
+void SetCols(CONSOLE *cons, int cols)
+{
+	cons->cols = cols;
 }
 
 void gotoxy(int x, int y)
